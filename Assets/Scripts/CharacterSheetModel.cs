@@ -10,12 +10,8 @@ public class CharacterSheetModel
     public Class Class { get; set; }
     public Alignment Alignment { get; set; }
     public int ArmorClass { get; set; }
-    
-    // Experience Points
-    public int CurrentExperiencePoints { get; set; } // 0
-    public int MaxExperiencePoints { get; set; } // 0
-    
-    
+    public int ExperiencePoints { get; set; }
+
     // Hit Points
     public int CurrentHitPoints { get; set; }
     public int MaxHitPoints { get; set; }
