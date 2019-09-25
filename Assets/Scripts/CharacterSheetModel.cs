@@ -42,26 +42,6 @@ public class CharacterSheetModel
     }
 
     public string ToJson() => JsonUtility.ToJson(this);
-
-    private static int GetMovementSpeedByRace(Race race)
-    {
-        switch (race)
-        {
-            case Race.Halfling:
-            case Race.Dwarf:
-            case Race.Gnome:
-            case Race.HalfElf:
-                return 25;
-            case Race.Dragonborn:
-            case Race.Elf:
-            case Race.HalfOrc:
-            case Race.Human:
-            case Race.Tiefling:
-                return 30;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(race), race, null);
-        }
-    }
     
     // These methods are only static until actual modifiers and items will be used.
     private static int GetModifierValueFor(Ability ability) => 2;
@@ -80,5 +60,34 @@ public class CharacterSheetModel
         int acFromArmor = GetAcFromArmor();
         return baseAc + dexterityModifier + acFromArmor;
     }
-}
 
+    public static DieType GetHitDieTypeByClass(Class class_)
+    {
+        switch (class_)
+        {
+            case Class.Sorcerer: case Class.Wizard:
+                return DieType.D6;
+            case Class.Bard: case Class.Cleric: case Class.Druid: case Class.Monk: case Class.Rogue: case Class.Warlock:
+                return DieType.D8;
+            case Class.Fighter: case Class.Paladin: case Class.Ranger:
+                return DieType.D10;
+            case Class.Barbarian:
+                return DieType.D12;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(class_), class_, null);
+        }
+    }
+    
+    private static int GetMovementSpeedByRace(Race race)
+    {
+        switch (race)
+        {
+            case Race.Halfling: case Race.Dwarf: case Race.Gnome: case Race.HalfElf:
+                return 25;
+            case Race.Dragonborn: case Race.Elf: case Race.HalfOrc: case Race.Human: case Race.Tiefling:
+                return 30;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(race), race, null);
+        }
+    }
+}
