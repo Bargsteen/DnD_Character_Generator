@@ -5874,7 +5874,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Roll
 --- !u!222 &1818042322
 CanvasRenderer:
   m_ObjectHideFlags: 0

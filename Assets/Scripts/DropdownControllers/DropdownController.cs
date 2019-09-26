@@ -18,7 +18,7 @@ namespace DropdownControllers
             dropdown.onValueChanged.AddListener(DropdownIndexChanged);
         }
 
-        public void DropdownIndexChanged(int newIndex)
+        public virtual void DropdownIndexChanged(int newIndex)
         {
             // Should never fail, as the options are created from the enum itself.
             Enum.TryParse(dropdown.options[newIndex].text, out _selectedOption);

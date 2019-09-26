@@ -2,7 +2,7 @@
 
 namespace DropdownControllers
 {
-    public class AlignmentDropdownController :DropdownController<Alignment>
+    public class AlignmentDropdownController : DropdownController<Alignment>
     {
     }
 }

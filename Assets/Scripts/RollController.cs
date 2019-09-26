@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Enums;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -18,6 +19,8 @@ public class RollController : MonoBehaviour
     private void Start()
     {
         _dieResults = new List<Text> {dieResultOne, dieResultTwo, dieResultThree, dieResultFour, dieResultFive};
+//        var m = new CharacterSheetModel("Kasper Dissing", new Dictionary<Ability, int>{{Ability.Charisma, 2}}, Race.Dragonborn, Class.Barbarian, Alignment.Neutral, 3 );
+//        Debug.Log($"JSON: {m.ToJson()}");
     }
 
     public void OnRollPressed() 
