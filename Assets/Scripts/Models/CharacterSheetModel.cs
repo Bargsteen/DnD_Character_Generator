@@ -69,6 +69,9 @@ public class CharacterSheetModel
     }
 
     public string ToJson() => JsonConvert.SerializeObject(this, Formatting.Indented);
+
+    public static CharacterSheetModel FromJson(string jsonData) =>
+        JsonConvert.DeserializeObject<CharacterSheetModel>(jsonData);
     
     // These methods are only static until actual modifiers and items will be used.
     private static int GetModifierValueFor(Ability ability) => 2;

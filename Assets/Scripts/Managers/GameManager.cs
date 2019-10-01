@@ -1,4 +1,5 @@
 ﻿using System;
+using Persistence;
 using UnityEngine;
 
 namespace Managers
@@ -6,6 +7,12 @@ namespace Managers
     public class GameManager : MonoBehaviour
     {
         private static GameManager _instance;
+        
+        private static bool ShuttingDown { get; } = false;
+        private static object Lock { get; } = new object();
+        
+        private CharacterSheetModel _characterSheetModel;
+        public CharacterSheetModel CharacterSheetModel => _characterSheetModel;
 
         public static GameManager Instance
         {
@@ -37,13 +44,7 @@ namespace Managers
             }
         }
 
-        private static bool ShuttingDown { get; set; } = false;
-        private static object Lock { get; } = new object();
-        
-        private CharacterSheetModel _characterSheetModel;
-        public CharacterSheetModel CharacterSheetModel => _characterSheetModel;
-
-        private void Awake()
+        private void Start()
         {
             TryLoadCharacterFromDisk(out _characterSheetModel);
         }
@@ -55,9 +56,9 @@ namespace Managers
         /// <returns>Returns whether it successfully loaded the character</returns>
         private static bool TryLoadCharacterFromDisk(out CharacterSheetModel characterModel)
         {
-            // TODO: Load from disk
-            characterModel = null;
-            return false;
+            PersistenceModel gameData = PersistenceSystem.LoadGame();
+            characterModel = gameData?.CharacterSheetModel;
+            return characterModel != null;
         }
     }
 }

@@ -3,7 +3,6 @@ using Managers;
 using Misc;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Controllers
@@ -13,7 +12,7 @@ namespace Controllers
         private CharacterSheetModel _characterSheetModel;
         public Button playButton;
 
-        public void Awake()
+        public void Start()
         {
             if (playButton == null)
             {
@@ -24,7 +23,7 @@ namespace Controllers
             {
                 Debug.Log("GameManager is null");
             }
-            //playButton.enabled = GameManager.Instance.CharacterSheetModel != null;
+            playButton.enabled = GameManager.Instance.CharacterSheetModel != null;
         }
 
         // TODO: Use GetByName
