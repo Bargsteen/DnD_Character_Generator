@@ -1,29 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
 using Enums;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class CharacterSheetModel
 {
+    [JsonProperty]
     public string CharacterName { get; }
+    
+    [JsonProperty]
     public Dictionary<Ability, int> Abilities { get; }
+    
+    [JsonProperty]
     public Race Race { get; }
+    
+    [JsonProperty]
     public Class Class { get; }
-    public Alignment Alignment { get;  }
+    
+    [JsonProperty]
+    public Alignment Alignment { get; }
+    
+    [JsonProperty]
     public int ArmorClass { get; }
+    
+    [JsonProperty]
     public int ExperiencePoints { get; }
 
     // Hit Points
+    [JsonProperty]
     public int CurrentHitPoints { get; }
+    
+    [JsonProperty]
     public int MaxHitPoints { get; }
     
     // Speed and Jumps
     private int MovementSpeed { get; }
+    
+    [JsonProperty]
     public int WalkingSpeed => MovementSpeed / 2; // Rounds down, as it truncates.
+    
+    [JsonProperty]
     public int RunningSpeed => MovementSpeed;
-    public int RunningHighJump => 3 + Abilities[Ability.Strength];
+    
+    [JsonProperty]
+    public int RunningHighJump { get; }
+    
+    [JsonProperty]
     public int StandingHighJump => RunningHighJump / 2;
-
+    
+    [JsonProperty]
     public Dictionary<string, object> Items { get; }
     
     public CharacterSheetModel(string characterName, Dictionary<Ability, int> abilities, Race race, Class class_, 
@@ -37,11 +63,12 @@ public class CharacterSheetModel
         ArmorClass = CalculateArmorClass();
         ExperiencePoints = 0;
         MovementSpeed = GetMovementSpeedByRace(Race);
+        RunningHighJump = 3 + Abilities[Ability.Strength];
         (CurrentHitPoints, MaxHitPoints) = CalculateCurrentAndMaxHitPoints(highestRollFromHitDice);
         Items = new Dictionary<string, object>();
     }
 
-    public string ToJson() => JsonUtility.ToJson(this);
+    public string ToJson() => JsonConvert.SerializeObject(this, Formatting.Indented);
     
     // These methods are only static until actual modifiers and items will be used.
     private static int GetModifierValueFor(Ability ability) => 2;
