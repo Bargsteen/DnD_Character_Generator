@@ -19,8 +19,8 @@ public class RollController : MonoBehaviour
     private void Start()
     {
         _dieResults = new List<Text> {dieResultOne, dieResultTwo, dieResultThree, dieResultFour, dieResultFive};
-//        var m = new CharacterSheetModel("Kasper Dissing", new Dictionary<Ability, int>{{Ability.Charisma, 2}}, Race.Dragonborn, Class.Barbarian, Alignment.Neutral, 3 );
-//        Debug.Log($"JSON: {m.ToJson()}");
+        var sut = new CharacterSheetModel("Kasper Dissing", new Dictionary<Ability, int>{{Ability.Strength, 2}}, Race.Dragonborn, Class.Barbarian, Alignment.Neutral, 3 );
+        Debug.Log("JSON:\n" + sut.ToJson());
     }
 
     public void OnRollPressed() 
