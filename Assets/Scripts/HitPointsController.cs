@@ -26,6 +26,6 @@ public class HitPointsController : MonoBehaviour
    
    public void RollHitDie()
    {
-      dieResult.text = Random.Range(LowestDieRoll, (int) _dieType).ToString();
+      dieResult.text = Random.Range(LowestDieRoll, _dieType.ToInt()).ToString();
    }
 }

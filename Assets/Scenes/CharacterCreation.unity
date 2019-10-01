@@ -805,9 +805,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: aaf09175f65204a0288fc0682b20f12d, type: 3}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 224409636}
+        m_MethodName: DropdownIndexChanged
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3251,7 +3251,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 879271985}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 998677156}
+        m_MethodName: RollHitDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &879271985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3822,6 +3833,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 998677155}
+  - component: {fileID: 998677156}
   m_Layer: 5
   m_Name: HitPointDiceArea
   m_TagString: Untagged
@@ -3852,6 +3864,20 @@ RectTransform:
   m_AnchoredPosition: {x: 23.31, y: 202.29}
   m_SizeDelta: {x: 146.62, y: 145.82}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &998677156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998677154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf75daf808bb4b9aa7d1f80f663ea2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dieResult: {fileID: 255871774}
+  dieAvailable: {fileID: 1354092455}
 --- !u!1 &1000818850
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,9 +4026,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: aaf09175f65204a0288fc0682b20f12d, type: 3}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1097234993}
+        m_MethodName: DropdownIndexChanged
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4417,11 +4443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76942a967964a4c17811975cb79006e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieResultOne: {fileID: 0}
-  dieResultTwo: {fileID: 0}
-  dieResultThree: {fileID: 0}
-  dieResultFour: {fileID: 0}
-  dieResultFive: {fileID: 0}
+  dieResultOne: {fileID: 1978771191}
+  dieResultTwo: {fileID: 1252255483}
+  dieResultThree: {fileID: 1894018850}
+  dieResultFour: {fileID: 339110505}
+  dieResultFive: {fileID: 1780663424}
 --- !u!1 &1235101444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4770,6 +4796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropdown: {fileID: 1359428360}
+  hitPointsController: {fileID: 998677156}
 --- !u!114 &1359428360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4827,9 +4854,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: aaf09175f65204a0288fc0682b20f12d, type: 3}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: DropdownIndexChanged
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
