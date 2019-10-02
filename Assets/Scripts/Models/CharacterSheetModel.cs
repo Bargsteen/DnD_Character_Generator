@@ -50,7 +50,7 @@ public class CharacterSheetModel
     public int StandingHighJump => RunningHighJump / 2;
     
     [JsonProperty]
-    public Dictionary<string, object> Items { get; }
+    public List<string> Items { get; }
     
     public CharacterSheetModel(string characterName, Dictionary<Ability, int> abilities, Race race, Class class_, 
         Alignment alignment, int highestRollFromHitDice)
@@ -65,7 +65,7 @@ public class CharacterSheetModel
         MovementSpeed = GetMovementSpeedByRace(Race);
         RunningHighJump = 3 + Abilities[Ability.Strength];
         (CurrentHitPoints, MaxHitPoints) = CalculateCurrentAndMaxHitPoints(highestRollFromHitDice);
-        Items = new Dictionary<string, object>();
+        Items = new List<string>();
     }
 
     public string ToJson() => JsonConvert.SerializeObject(this, Formatting.Indented);
