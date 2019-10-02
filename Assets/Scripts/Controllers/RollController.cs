@@ -20,8 +20,6 @@ namespace Controllers
         private void Start()
         {
             _dieResults = new List<Text> {dieResultOne, dieResultTwo, dieResultThree, dieResultFour, dieResultFive};
-            var sut = new CharacterSheetModel("Kasper Dissing", new Dictionary<Ability, int>{{Ability.Strength, 2}}, Race.Dragonborn, Class.Barbarian, Alignment.Neutral, 3 );
-            Debug.Log("JSON:\n" + sut.ToJson());
         }
 
         public void OnRollPressed() 

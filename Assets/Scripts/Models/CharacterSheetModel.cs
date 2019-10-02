@@ -8,9 +8,24 @@ public class CharacterSheetModel
 {
     [JsonProperty]
     public string CharacterName { get; }
+
+    [JsonProperty]
+    public int Ability_Charisma { get; }
     
     [JsonProperty]
-    public Dictionary<Ability, int> Abilities { get; }
+    public int Ability_Constitution { get; }
+  
+    [JsonProperty]
+    public int Ability_Dexterity { get; }
+    
+    [JsonProperty]
+    public int Ability_Intelligence { get; }
+    
+    [JsonProperty]
+    public int Ability_Strength { get; }
+    
+    [JsonProperty]
+    public int Ability_Wisdom { get; }
     
     [JsonProperty]
     public Race Race { get; }
@@ -52,18 +67,26 @@ public class CharacterSheetModel
     [JsonProperty]
     public List<string> Items { get; }
     
-    public CharacterSheetModel(string characterName, Dictionary<Ability, int> abilities, Race race, Class class_, 
-        Alignment alignment, int highestRollFromHitDice)
+    public CharacterSheetModel(string characterName, Race race, Class class_, Alignment alignment, 
+        int highestRollFromHitDice, int abilityCharisma, int abilityConstitution, int abilityDexterity, 
+        int abilityIntelligence, int abilityStrength, int abilityWisdom)
     {
         CharacterName = characterName;
-        Abilities = abilities;
+        
+        Ability_Charisma = abilityCharisma;
+        Ability_Constitution = abilityConstitution;
+        Ability_Dexterity = abilityDexterity;
+        Ability_Intelligence = abilityIntelligence;
+        Ability_Strength = abilityStrength;
+        Ability_Wisdom = abilityWisdom;
+        
         Race = race;
         Class = class_;
         Alignment = alignment;
         ArmorClass = CalculateArmorClass();
         ExperiencePoints = 0;
         MovementSpeed = GetMovementSpeedByRace(Race);
-        RunningHighJump = 3 + Abilities[Ability.Strength];
+        RunningHighJump = 3 + Ability_Strength;
         (CurrentHitPoints, MaxHitPoints) = CalculateCurrentAndMaxHitPoints(highestRollFromHitDice);
         Items = new List<string>();
     }
