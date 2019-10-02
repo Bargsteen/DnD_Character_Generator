@@ -1,3 +1,5 @@
+using System.Runtime.Serialization;
+
 namespace Enums
 {
     [System.Serializable]
@@ -7,8 +9,13 @@ namespace Enums
         Dwarf,
         Elf,
         Gnome,
+        
+        [EnumMember(Value = "Half-Elf")]
         HalfElf,
+        
+        [EnumMember(Value = "Half-Orc")]
         HalfOrc,
+        
         Halfling,
         Human,
         Tiefling,

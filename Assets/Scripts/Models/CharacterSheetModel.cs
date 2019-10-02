@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Enums;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using UnityEngine;
 
 public class CharacterSheetModel
@@ -91,7 +92,7 @@ public class CharacterSheetModel
         Items = new List<string>();
     }
 
-    public string ToJson() => JsonConvert.SerializeObject(this, Formatting.Indented);
+    public string ToJson() => JsonConvert.SerializeObject(this, Formatting.Indented, new StringEnumConverter());
 
     public static CharacterSheetModel FromJson(string jsonData) =>
         JsonConvert.DeserializeObject<CharacterSheetModel>(jsonData);
