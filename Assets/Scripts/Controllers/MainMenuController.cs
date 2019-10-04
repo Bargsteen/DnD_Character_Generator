@@ -14,24 +14,15 @@ namespace Controllers
 
         public void Start()
         {
-            if (playButton == null)
-            {
-                Debug.Log("PlayButton is null");
-            }
-
-            if (GameManager.Instance == null)
-            {
-                Debug.Log("GameManager is null");
-            }
             playButton.enabled = GameManager.Instance.CharacterSheetModel != null;
         }
 
         // TODO: Use GetByName
         public void OnPlayButtonPressed() => SceneManager
-            .LoadScene(2);
+            .LoadScene(SceneIndexes.LevelOneIndex);
 
         public void OnCreateCharacterButtonPressed() => SceneManager
-            .LoadScene(1);
+            .LoadScene(SceneIndexes.CharacterCreationIndex);
 
         public void OnQuitButtonPressed()
         {
