@@ -29,7 +29,7 @@ namespace Controllers
    
       public void RollHitDie()
       {
-         dieResult.text = Random.Range(LowestDieRoll, _dieType.ToInt()).ToString();
+         dieResult.text = Random.Range(LowestDieRoll, _dieType.ToInt() + 1).ToString();
       }
    }
 }
