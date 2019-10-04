@@ -13,7 +13,8 @@ namespace Controllers
 
       private void Start()
       {
-         _dieType = CharacterSheetModel.GetHitDieTypeByClass(Class.Barbarian); // Barbarian is the default
+         // Arbitrarily chose Barbarian to be the default
+         _dieType = CharacterSheetModel.GetHitDieTypeByClass(Class.Barbarian); 
          dieAvailable.text = _dieType.ToString();
       }
 
