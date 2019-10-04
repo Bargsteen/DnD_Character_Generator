@@ -8,27 +8,34 @@ namespace Models
 {
     public class CharacterSheetModel
     {
+        private readonly int _abilityCharisma;
+        private readonly int _abilityConstitution;
+        private readonly int _abilityDexterity;
+        private readonly int _abilityIntelligence;
+        private readonly int _abilityStrength;
+        private readonly int _abilityWisdom;
+
         [JsonProperty]
         public string CharacterName { get; }
 
         [JsonProperty]
-        public int Ability_Charisma { get; }
-    
+        public int AbilityCharisma => _abilityCharisma + GetModifierValueFor(Ability.Charisma);
+
         [JsonProperty]
-        public int Ability_Constitution { get; }
-  
+        public int AbilityConstitution => _abilityConstitution + GetModifierValueFor(Ability.Constitution);
+
         [JsonProperty]
-        public int Ability_Dexterity { get; }
-    
+        public int AbilityDexterity => _abilityDexterity + GetModifierValueFor(Ability.Dexterity);
+
         [JsonProperty]
-        public int Ability_Intelligence { get; }
-    
+        public int AbilityIntelligence => _abilityIntelligence + GetModifierValueFor(Ability.Intelligence);
+
         [JsonProperty]
-        public int Ability_Strength { get; }
-    
+        public int AbilityStrength => _abilityStrength + GetModifierValueFor(Ability.Strength);
+
         [JsonProperty]
-        public int Ability_Wisdom { get; }
-    
+        public int AbilityWisdom => _abilityWisdom + GetModifierValueFor(Ability.Wisdom);
+
         [JsonProperty]
         public Race Race { get; }
     
@@ -75,12 +82,12 @@ namespace Models
         {
             CharacterName = characterName;
         
-            Ability_Charisma = abilityCharisma;
-            Ability_Constitution = abilityConstitution;
-            Ability_Dexterity = abilityDexterity;
-            Ability_Intelligence = abilityIntelligence;
-            Ability_Strength = abilityStrength;
-            Ability_Wisdom = abilityWisdom;
+            _abilityCharisma = abilityCharisma;
+            _abilityConstitution = abilityConstitution;
+            _abilityDexterity = abilityDexterity;
+            _abilityIntelligence = abilityIntelligence;
+            _abilityStrength = abilityStrength;
+            _abilityWisdom = abilityWisdom;
         
             Race = race;
             Class = class_;
@@ -88,7 +95,7 @@ namespace Models
             ArmorClass = CalculateArmorClass();
             ExperiencePoints = 0;
             MovementSpeed = GetMovementSpeedByRace(Race);
-            RunningHighJump = 3 + Ability_Strength;
+            RunningHighJump = 3 + AbilityStrength;
             (CurrentHitPoints, MaxHitPoints) = CalculateCurrentAndMaxHitPoints(highestRollFromHitDice);
             Items = new List<string>();
         }

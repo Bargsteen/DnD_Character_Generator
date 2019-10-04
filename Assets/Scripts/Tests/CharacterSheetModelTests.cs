@@ -19,12 +19,12 @@ namespace Tests
                 3, 4, 5);
             const string expected = @"{
                             ""CharacterName"": ""Kasper Dissing"",
-                            ""Ability_Charisma"": 0,
-                            ""Ability_Constitution"": 1,
-                            ""Ability_Dexterity"": 2,
-                            ""Ability_Intelligence"": 3,
-                            ""Ability_Strength"": 4,
-                            ""Ability_Wisdom"": 5,
+                            ""AbilityCharisma"": 2,
+                            ""AbilityConstitution"": 3,
+                            ""AbilityDexterity"": 4,
+                            ""AbilityIntelligence"": 5,
+                            ""AbilityStrength"": 6,
+                            ""AbilityWisdom"": 7,
                             ""Race"": ""Half-Elf"",
                             ""Class"": ""Barbarian"",
                             ""Alignment"": ""Chaotic Evil"",
@@ -34,8 +34,8 @@ namespace Tests
                             ""MaxHitPoints"": 5,
                             ""WalkingSpeed"": 12,
                             ""RunningSpeed"": 25,
-                            ""RunningHighJump"": 7,
-                            ""StandingHighJump"": 3,
+                            ""RunningHighJump"": 9,
+                            ""StandingHighJump"": 4,
                             ""Items"": []
                             }";
             
