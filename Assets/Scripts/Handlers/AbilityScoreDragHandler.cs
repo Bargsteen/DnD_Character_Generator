@@ -24,10 +24,8 @@ namespace Handlers
         public void OnEndDrag(PointerEventData eventData)
         {
             // AbilityScore -> AbilityScoreSpot, let the DropHandler take care of it
-            Debug.Log($"pointerEnter: {eventData.pointerEnter.name}");
             if (eventData.pointerEnter.GetComponent<AbilityScoreDropHandler>() != null)
             {
-                Debug.Log($"Found drop handler: {eventData.pointerEnter.name}");
                 return;
             }
             

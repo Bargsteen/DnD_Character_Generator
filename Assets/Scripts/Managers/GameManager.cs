@@ -1,6 +1,6 @@
 ﻿using System;
+using Systems;
 using Models;
-using Persistence;
 using UnityEngine;
 
 namespace Managers
@@ -58,7 +58,7 @@ namespace Managers
         public void SaveCharacterSheetModel(CharacterSheetModel characterModel)
         {
             CharacterSheetModel = characterModel;
-            PersistenceSystem.SaveGame(new PersistenceModel(_characterSheetModel));
+            //PersistenceSystem.SaveGame(new PersistenceModel(_characterSheetModel));
         }
         
         /// <summary>

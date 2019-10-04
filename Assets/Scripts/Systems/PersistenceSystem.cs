@@ -1,8 +1,8 @@
 using System.IO;
-using System.Threading.Tasks;
+using Models;
 using UnityEngine;
 
-namespace Persistence
+namespace Systems
 {
     public class PersistenceSystem : MonoBehaviour
     {
@@ -15,9 +15,10 @@ namespace Persistence
         /// <param name="gameData">The data to save.</param>
         public static void SaveGame(PersistenceModel gameData)
         {
-            using (StreamWriter writer = new StreamWriter(Path, true))
+            using (StreamWriter writer = new StreamWriter(Path))
             {
-                writer.Write(gameData.ToJson());
+                var json = gameData.ToJson();
+                writer.Write(json);
             }
         }
 

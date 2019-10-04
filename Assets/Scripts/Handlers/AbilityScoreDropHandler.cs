@@ -10,9 +10,8 @@ namespace Handlers
         
         public void OnDrop(PointerEventData eventData)
         {
-            Debug.Log($"OnDrop: {eventData.pointerDrag.name}");
             // Ignore if the dropped object isn't an ability
-            /*var newAbilityScore = eventData.pointerDrag.GetComponent<AbilityScoreDragHandler>()
+            var newAbilityScore = eventData.pointerDrag.GetComponent<AbilityScoreDragHandler>();
             if (newAbilityScore == null) return;
             
             // RollArea -> Empty abilityScoreSpot
@@ -30,7 +29,7 @@ namespace Handlers
                 // Move it back to the rollArea
                 // TODO: abilityScore.transform.localPosition
             }
-            */
+            
             // AbilitySpot -> Outside
             // set property = null
             // Move it back to the rollArea
