@@ -1,6 +1,7 @@
 ﻿using System;
 using DropdownControllers;
 using Enums;
+using Managers;
 using Models;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Controllers
 {
-    public class CharacterGenerationController : MonoBehaviour
+    public class CharacterCreationController : MonoBehaviour
     {
         private const string EvaluationErrorMessage =
             "Entered data is invalid. Check if all fields are filled appropriately.";
@@ -66,10 +67,12 @@ namespace Controllers
                 return;
             }
             
+            // Continue if everything is ok
             var characterModel = new CharacterSheetModel(characterName, race, class_, alignment, 
                 highestRollFromHitDice, charisma, constitution, dexterity, intelligence, strength, wisdom);
 
             jsonOutputField.text = characterModel.ToJson();
+            GameManager.Instance.SaveCharacterSheetModel(characterModel);
         }
     }
 }

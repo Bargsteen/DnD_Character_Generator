@@ -11,14 +11,7 @@ namespace Controllers
     public class MainMenuController : MonoBehaviour
     {
         private CharacterSheetModel _characterSheetModel;
-        public Button playButton;
 
-        public void Start()
-        {
-            playButton.enabled = GameManager.Instance.CharacterSheetModel != null;
-        }
-
-        // TODO: Use GetByName
         public void OnPlayButtonPressed() => SceneManager
             .LoadScene(SceneIndexes.LevelOneIndex);
 

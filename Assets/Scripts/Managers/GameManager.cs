@@ -13,7 +13,13 @@ namespace Managers
         private static object Lock { get; } = new object();
         
         private CharacterSheetModel _characterSheetModel;
-        public CharacterSheetModel CharacterSheetModel => _characterSheetModel;
+
+        public CharacterSheetModel CharacterSheetModel { get; private set; }
+        
+        private void Start()
+        {
+            TryLoadCharacterFromDisk(out _characterSheetModel);
+        }
 
         public static GameManager Instance
         {
@@ -44,12 +50,17 @@ namespace Managers
                 }
             }
         }
-
-        private void Start()
+        
+        /// <summary>
+        /// Sets the CharacterSheetModel property and tries to save the game to disc
+        /// </summary>
+        /// <param name="characterModel">The model to save</param>
+        public void SaveCharacterSheetModel(CharacterSheetModel characterModel)
         {
-            TryLoadCharacterFromDisk(out _characterSheetModel);
+            CharacterSheetModel = characterModel;
+            PersistenceSystem.SaveGame(new PersistenceModel(_characterSheetModel));
         }
-
+        
         /// <summary>
         /// Tries to load the character model from disk.
         /// </summary>
