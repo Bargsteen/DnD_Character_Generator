@@ -1,4 +1,5 @@
 ﻿using Enums;
+using Models;
 using UnityEngine;
 using UnityEngine.UI;
 

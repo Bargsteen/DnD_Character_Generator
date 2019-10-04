@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Enums;
+using Models;
 using NUnit.Framework;
 
 namespace Tests

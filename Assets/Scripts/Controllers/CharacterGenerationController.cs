@@ -1,6 +1,7 @@
 ﻿using System;
 using DropdownControllers;
 using Enums;
+using Models;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;

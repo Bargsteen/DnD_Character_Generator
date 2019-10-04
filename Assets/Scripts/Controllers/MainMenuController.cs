@@ -1,6 +1,7 @@
 ﻿using System;
 using Managers;
 using Misc;
+using Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
