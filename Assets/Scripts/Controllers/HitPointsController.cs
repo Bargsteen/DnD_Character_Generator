@@ -7,6 +7,7 @@ namespace Controllers
 {
    public class HitPointsController : MonoBehaviour
    {
+      private const string InvalidDieResult = "_";
       private DieType _dieType;
       public Text dieResult;
       public Text dieAvailable;
@@ -25,11 +26,14 @@ namespace Controllers
          dieAvailable.text = _dieType.ToString();
       
          // Invalidate any previous rolls
-         dieResult.text = "_";
+         dieResult.text = InvalidDieResult;
       }
    
       public void RollHitDie()
       {
+         // Do not allow re-rolls (except for change of class)
+         if (dieResult.text != InvalidDieResult) return;
+         
          dieResult.text = Random.Range(LowestDieRoll, _dieType.ToInt() + 1).ToString();
       }
    }
