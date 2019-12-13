@@ -2,6 +2,11 @@
 
 By: Kasper Dissing Bargsteen
 
+## Restoring NuGet packages
+I used the NuGet package `Newtonsoft.Json` for generating the JSON, which means that a restore of the packages are necessary before the project works. This can be achieved by:
+  - Either running `nuget restore` in a terminal in the project folder,
+  - or by using the NuGet package manager in your IDE.
+
 ## Notable features
   - The data entered is validated when you try to generate JSON, so the user will be told if he/she forgot to give the character a name or similar (currently, the message simply states that _some_ entries are missing).
   - I used enums for the classes, races etc. and the dropdown values are automatically set in the generic class `DropdownController.cs` based on the enums. This ensures consistency throughout the system.
